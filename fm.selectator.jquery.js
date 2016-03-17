@@ -249,6 +249,18 @@
 						}
 						resizeSearchInput();
 						break;
+					case key.tab:
+						e.preventDefault();
+						$active = $options_element.find('.active');
+						if ($active.length !== 0) {
+							selectOption();
+						} else {
+							if ($input_element.val() !== '') {
+								plugin.settings.searchCallback($input_element.val());
+							}
+						}
+						resizeSearchInput();
+						break;
 					case key.backspace:
 						if (plugin.settings.useSearch) {
 							if ($input_element.val() === '' && is_multiple) {
